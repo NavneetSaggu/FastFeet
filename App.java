@@ -3,21 +3,19 @@ package GearApp;
 class Gear {
 	private int chainRing;
 	private int cog;
-	private int rim;
-	private float tire;
+	private Wheel wheel;
 
-	public Gear(int chainRing, int cog, int rim, float tire) {
+	public Gear(int chainRing, int cog, Wheel wheel) {
 		this.chainRing = chainRing;
 		this.cog = cog;
-		this.rim = rim;
-		this.tire = tire;
+		this.wheel = wheel;
 	}
 
 	public float getRatio() {
 		return chainRing/cog;
 	}
 	public float getGearInches() {
-		return (rim+(tire*2))*this.getRatio();
+		return wheel.getDiameter()*this.getRatio();
 	}
 
 	public String toString() {
@@ -30,12 +28,30 @@ class Gear {
 	}
 }
 
+class Wheel {
+	private int rim;
+	private float tire;
+	final private float PI = 3.14f;
+
+	public Wheel(int rim, float tire) {
+		this.rim = rim;
+		this.tire = tire;
+	}
+
+	public float getDiameter() {
+		return rim + (2*tire);
+	}
+
+	public float getCircumference() {
+		return PI*this.getDiameter();
+	}
+}
+
 public class App {
 	public static void main(String[] args) {
-		Gear gear1 = new Gear(52, 11, 26, 1.5f);
-		Gear gear2 = new Gear(52, 11, 24, 1.25f);
+		Wheel wheel1 = new Wheel(26, 1.5f);
+		Gear gear1 = new Gear(52, 11, wheel1);
 		System.out.println("Gearing Ratio Calculator");
 		System.out.println(gear1);
-		System.out.println(gear2);
 	}
 }
