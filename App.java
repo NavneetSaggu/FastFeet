@@ -1,11 +1,16 @@
 package GearApp;
 
+interface Circular {
+	public float getDiameter();
+	public float getCircumference();
+}
+
 class Gear {
 	private int chainRing;
 	private int cog;
-	private Wheel wheel;
+	private Circular wheel;
 
-	public Gear(int chainRing, int cog, Wheel wheel) {
+	public Gear(int chainRing, int cog, Circular wheel) {
 		this.chainRing = chainRing;
 		this.cog = cog;
 		this.wheel = wheel;
@@ -28,7 +33,7 @@ class Gear {
 	}
 }
 
-class Wheel {
+class Wheel implements Circular {
 	private int rim;
 	private float tire;
 	final private float PI = 3.14f;
