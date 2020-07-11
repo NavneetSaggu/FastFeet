@@ -20,7 +20,7 @@ class Gear {
 		return chainRing/cog;
 	}
 	public float getGearInches() {
-		return wheel.getDiameter()*this.getRatio();
+		return this.getDiameter()*this.getRatio();
 	}
 
 	public String toString() {
@@ -30,6 +30,10 @@ class Gear {
 			.append("\nGear Ratio\t: ").append(this.getRatio())
 			.append("\nGear Inches\t: ").append(this.getGearInches());
 		return sb.toString();
+	}
+
+	private float getDiameter() {
+		return wheel.getDiameter();
 	}
 }
 
