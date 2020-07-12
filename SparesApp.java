@@ -8,6 +8,13 @@ abstract class Bicycle {
 		this.size = size;
 		this.chainTeeth = chainTeeth;
 	}
+
+	protected String getSpares() {
+		StringBuilder sb = new StringBuilder("");
+		sb.append("\nSize\t\t: ").append(size)
+			.append("\nChain Ring Teeth: ").append(chainTeeth);
+		return sb.toString();
+	}
 }
 
 class RoadBike extends Bicycle {
@@ -19,10 +26,8 @@ class RoadBike extends Bicycle {
 	}
 
 	public String getSpares() {
-		StringBuilder sb = new StringBuilder("");
-		sb.append("\nROADBIKE SPARES")
-			.append("\nSize\t\t: ").append(size)
-			.append("\nChain Ring Teeth: ").append(chainTeeth)
+		StringBuilder sb = new StringBuilder("\nROADBIKE SPARES");
+		sb.append(super.getSpares())
 			.append("\nTape Color\t: ").append(tapeColor);
 		return sb.toString();
 	}
@@ -40,10 +45,8 @@ class MountainBike extends Bicycle {
 	}
 
 	public String getSpares() {
-		StringBuilder sb = new StringBuilder("");
-		sb.append("\nMOUNTAINBIKE SPARES")
-			.append("\nSize\t\t: ").append(size)
-			.append("\nChain Ring Teeth: ").append(chainTeeth)
+		StringBuilder sb = new StringBuilder("MOUNTAINBIKE SPARES");
+		sb.append(super.getSpares())
 			.append("\nront Shock\t: ").append(frontShock)
 			.append("\nRear Shock\t: ").append(rearShock);
 		return sb.toString();
