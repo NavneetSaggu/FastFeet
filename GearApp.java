@@ -56,7 +56,7 @@ class Wheel implements Circular {
 	}
 }
 
-public class App {
+public class GearApp {
 	public static void main(String[] args) {
 		Wheel wheel1 = new Wheel(26, 1.5f);
 		Gear gear1 = new Gear(52, 11, wheel1);
